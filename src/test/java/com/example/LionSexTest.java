@@ -1,6 +1,5 @@
 package com.example;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -9,14 +8,14 @@ import org.mockito.Mock;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class LionParametrizedTest {
+public class LionSexTest {
     private final String sexTest;
     private final boolean hasManeTest;
 
     @Mock
     Feline feline;
 
-    public LionParametrizedTest(String sexTest, boolean hasManeTest) {
+    public LionSexTest(String sexTest, boolean hasManeTest) {
         this.sexTest = sexTest;
         this.hasManeTest = hasManeTest;
     }
@@ -37,7 +36,8 @@ public class LionParametrizedTest {
 
     @Test(expected = Exception.class)
     public void invalidSexTest() throws Exception {
-         new Lion("invalid sex", feline);
+        new Lion("invalid sex", feline);
     }
+
 }
 
