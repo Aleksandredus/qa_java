@@ -1,0 +1,43 @@
+package com.example;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.mockito.Mock;
+
+import static org.junit.Assert.assertEquals;
+
+@RunWith(Parameterized.class)
+public class LionParametrizedTest {
+    private final String sexTest;
+    private final boolean hasManeTest;
+
+    @Mock
+    Feline feline;
+
+    public LionParametrizedTest(String sexTest, boolean hasManeTest) {
+        this.sexTest = sexTest;
+        this.hasManeTest = hasManeTest;
+    }
+
+    @Parameterized.Parameters
+    public static Object[][] LionParams() {
+        return new Object[][]{
+                {"Самец", true},
+                {"Самка", false},
+        };
+    }
+
+    @Test
+    public void lionSexTest() throws Exception {
+        Lion lion = new Lion(sexTest, feline);
+        assertEquals(hasManeTest, lion.doesHaveMane());
+    }
+
+    @Test(expected = Exception.class)
+    public void invalidSexTest() throws Exception {
+         new Lion("invalid sex", feline);
+    }
+}
+
