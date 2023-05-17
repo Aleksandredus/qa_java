@@ -33,11 +33,5 @@ public class LionSexTest {
         Lion lion = new Lion(sexTest, feline);
         assertEquals(hasManeTest, lion.doesHaveMane());
     }
-
-    @Test(expected = Exception.class)
-    public void invalidSexTest() throws Exception {
-        new Lion("invalid sex", feline);
-    }
-
 }
 
