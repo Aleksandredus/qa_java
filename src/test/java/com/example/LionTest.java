@@ -40,4 +40,9 @@ public class LionTest {
         boolean actualHaveMane = lion.doesHaveMane();
         assertEquals(expectedHaveMane, actualHaveMane);
     }
+    
+    @Test(expected = Exception.class)
+    public void invalidSexTest() throws Exception {
+        new Lion("invalid sex", feline);
+    }
 }
